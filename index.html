@@ -1,47 +1,107 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CỔNG HỌC TẬP SỐ – TS. DŨNG</title>
-  <link rel="icon" href="logo512.png">
-  <link rel="manifest" href="manifest.json">
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log("✅ Service Worker đã kích hoạt"))
-        .catch(err => console.error("❌ Service Worker lỗi:", err));
-    }
-  </script>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="logo512.png" />
   <style>
-    body {font-family: "Segoe UI", sans-serif; background: linear-gradient(145deg, #eef2f3, #8ec5fc); color: #333; text-align: center; margin: 0; padding: 0;}
-    header {background-color: #0078D7; color: white; padding: 20px 10px; font-size: 1.3em; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.2);}
-    header img {width: 60px; height: 60px; border-radius: 50%;}
-    .container {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 20px; margin: 0 auto; max-width: 900px;}
-    .card {background: white; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; transition: transform 0.2s, box-shadow 0.2s;}
-    .card:hover {transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2);}
-    .card h3 {color: #0078D7; font-size: 1.1em;}
-    .icon {width: 60px; height: 60px; margin-bottom: 10px;}
-    a.button {display: inline-block; background-color: #0078D7; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.2s;}
-    a.button:hover {background-color: #005a9e;}
-    footer {font-size: 0.9em; color: #444; margin-top: 20px; padding: 10px;}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(145deg, #eef2f3, #8ec5fc);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      padding: 20px 10px;
+    }
+    header img {
+      width: 100px;
+      border-radius: 50%;
+    }
+    h1 {
+      color: #0078d7;
+      margin: 10px 0;
+    }
+    .qr-section {
+      margin-top: 10px;
+    }
+    canvas {
+      margin-top: 10px;
+    }
+    .link-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 30px auto;
+      max-width: 400px;
+    }
+    .link-button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background-color: #0078d7;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+    .link-button:hover {
+      background-color: #005a9e;
+    }
+    footer {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-top: 2px solid #0078d7;
+    }
+    footer a {
+      color: #0078d7;
+      font-weight: bold;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo512.png" alt="Logo Khoa Giáo dục Tiểu học">
-    🚀 CỔNG HỌC TẬP SỐ – TS. DŨNG
+    <img src="logo512.png" alt="Logo Khoa GDTH" />
+    <h1>CỔNG HỌC TẬP SỐ – TS. DŨNG</h1>
+    <div class="qr-section">
+      <canvas id="qrcode"></canvas>
+      <p>📱 Quét mã để mở và thêm Cổng học tập số vào màn hình chính</p>
+    </div>
   </header>
 
-  <div class="container">
-    <div class="card"><h3>1️⃣ Xin phép nghỉ học</h3><a class="button" href="https://forms.office.com/r/M0wUgBdaxe?origin=lprLink" target="_blank">Truy cập</a></div>
-    <div class="card"><h3>2️⃣ Lớp “Ứng dụng công nghệ số”</h3><a class="button" href="https://teams.microsoft.com/l/team/19%3A49RChzFNhAs2sG-5pgRAPffH3kK77JR9QEpCFkCqtTk1%40thread.tacv2/conversations?groupId=bbc0d996-76ca-49e3-8ddf-d1f1f7bf24d2&tenantId=4ef78439-6d6c-4ea0-ab14-49b9284ab4c9" target="_blank">Vào lớp</a></div>
-    <div class="card"><h3>3️⃣ Lớp “Cơ sở toán 1”</h3><a class="button" href="https://teams.microsoft.com/l/team/19%3A9jCYO2naA2yrpkhGZEefuNTEeRRkLvihlWdxQUQNvq41%40thread.tacv2/conversations?groupId=2bdd1cdc-c4e8-445d-ae68-aed8ac91c17e&tenantId=4ef78439-6d6c-4ea0-ab14-49b9284ab4c9" target="_blank">Vào lớp</a></div>
-    <div class="card"><h3>4️⃣ Lớp “Phát triển chương trình GDTH”</h3><a class="button" href="https://teams.microsoft.com/l/team/19%3AIp0QR7eDeAmQ8k-tPJUaCeL71OMW0INB9hC7Lhb0yIY1%40thread.tacv2/conversations?groupId=65011eb3-07d6-43b2-abc2-3f5d0d5fef06&tenantId=4ef78439-6d6c-4ea0-ab14-49b9284ab4c9" target="_blank">Vào lớp</a></div>
-    <div class="card"><h3>5️⃣ Điểm danh “Cơ sở toán 1”</h3><a class="button" href="https://vinhunieduvn0-my.sharepoint.com/:x:/g/personal/dungnt_vinhuni_edu_vn/EW79Z0Hy1tFNmgi6dNAHGm8B8JXbBe_GAK2qcKJiat-qhg?e=ph2tCd" target="_blank">Điểm danh</a></div>
-    <div class="card"><h3>6️⃣ Điểm danh “Phát triển chương trình GDTH”</h3><a class="button" href="https://vinhunieduvn0-my.sharepoint.com/:x:/g/personal/dungnt_vinhuni_edu_vn/ERErwPUOfmlJqKN70S8x-3UBWAZMaTsixQ86YdqyHlDBag?e=CPk77X" target="_blank">Điểm danh</a></div>
-    <div class="card"><h3>7️⃣ Cổng học tập LMS – Đại học Vinh</h3><a class="button" href="https://elearning.vinhuni.edu.vn/course/view.php?id=12595#section-1" target="_blank">Vào LMS</a></div>
+  <div class="link-container">
+    <a class="link-button" href="https://forms.office.com/r/M0wUgBdaxe?origin=lprLink">1️⃣ Xin phép nghỉ học</a>
+    <a class="link-button" href="https://teams.microsoft.com/l/team/19%3A49RChzFNhAs2sG-5pgRAPffH3kK77JR9QEpCFkCqtTk1%40thread.tacv2/conversations?groupId=bbc0d996-76ca-49e3-8ddf-d1f1f7bf24d2&tenantId=4ef78439-6d6c-4ea0-ab14-49b9284ab4c9">2️⃣ Lớp Ứng dụng Công nghệ số</a>
+    <a class="link-button" href="https://teams.microsoft.com/l/team/19%3A9jCYO2naA2yrpkhGZEefuNTEeRRkLvihlWdxQUQNvq41%40thread.tacv2/conversations?groupId=2bdd1cdc-c4e8-445d-ae68-aed8ac91c17e&tenantId=4ef78439-6d6c-4ea0-ab14-49b9284ab4c9">3️⃣ Lớp Cơ sở Toán 1</a>
+    <a class="link-button" href="https://teams.microsoft.com/l/team/19%3AIp0QR7eDeAmQ8k-tPJUaCeL71OMW0INB9hC7Lhb0yIY1%40thread.tacv2/conversations?groupId=65011eb3-07d6-43b2-abc2-3f5d0d5fef06&tenantId=4ef78439-6d6c-4ea0-ab14-49b9284ab4c9">4️⃣ Lớp Phát triển chương trình GDTH</a>
+    <a class="link-button" href="https://vinhunieduvn0-my.sharepoint.com/:x:/g/personal/dungnt_vinhuni_edu_vn/EW79Z0Hy1tFNmgi6dNAHGm8B8JXbBe_GAK2qcKJiat-qhg?e=ph2tCd">5️⃣ Điểm danh Cơ sở Toán 1</a>
+    <a class="link-button" href="https://vinhunieduvn0-my.sharepoint.com/:x:/g/personal/dungnt_vinhuni_edu_vn/ERErwPUOfmlJqKN70S8x-3UBWAZMaTsixQ86YdqyHlDBag?e=CPk77X">6️⃣ Điểm danh PTCT</a>
+    <a class="link-button" href="https://elearning.vinhuni.edu.vn/course/view.php?id=12595#section-1">7️⃣ Cổng học tập LMS</a>
   </div>
-  <footer>© 2025 – CỔNG HỌC TẬP SỐ – TS. DŨNG | Khoa Giáo dục Tiểu học – Đại học Vinh</footer>
+
+  <footer>
+    <h3>Liên hệ Giảng viên – TS. Nguyễn Tiến Dũng</h3>
+    <p>✉️ Email: <a href="mailto:dungnt@vinhuni.edu.vn">dungnt@vinhuni.edu.vn</a></p>
+    <p>💬 Teams: <a href="https://teams.microsoft.com">Chat trực tiếp</a></p>
+    <p>🔗 Zalo: <a href="https://zalo.me/84963414848">https://zalo.me/84963414848</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script>
+    const qr = new QRious({
+      element: document.getElementById('qrcode'),
+      value: window.location.href,
+      size: 150
+    });
+  </script>
 </body>
 </html>

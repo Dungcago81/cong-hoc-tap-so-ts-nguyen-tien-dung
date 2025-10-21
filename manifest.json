@@ -1,11 +1,15 @@
 {
-  "name": "CỔNG HỌC TẬP SỐ – TS. DŨNG",
-  "short_name": "Học tập số",
+  "name": "Cổng học tập số – TS. Dũng",
+  "short_name": "Cổng học tập",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0078D7",
-  "theme_color": "#0078D7",
+  "background_color": "#ffffff",
+  "theme_color": "#0078d7",
   "icons": [
-    {"src": "logo512.png", "sizes": "512x512", "type": "image/png"}
+    {
+      "src": "logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
